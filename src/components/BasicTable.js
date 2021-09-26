@@ -66,7 +66,7 @@ Need 3 things: The data, the columns component and the useTable hook provided by
 - it recommended to memoized the rows and columns using useMemo hook; place it before the useTable call
   ----> this to prevent the data from being re-created on every render. If not, it will always think it's recieving more data and effect performance
 
-
+Props from React-Table
 ** 
 getTableProps: 
   - a function that needs to be destructured on the 'table' tag
