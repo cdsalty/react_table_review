@@ -1,7 +1,7 @@
 export const COLUMNS = [
   {
-    Header: "Id", // the colomn
-    accessor: "id" // the data for the columns
+    Header: "Id", // the lables for each colomn
+    accessor: "id" // the data for the column(s) retrieved by the MOCK_DATA
   },
   {
     Header: "First Name",

@@ -9,20 +9,30 @@ const BasicTable = () => {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, []);
   // step 2
-  const tableInstance = useTable({
-    columns: columns,
-    data: data
-  });
-
+  // const tableInstance = useTable({
+  //   columns: columns,
+  //   data: data
+  // });
   /* step 4: use the tableInstance with JSX to render UI and destructure tableInstance
    */
+  // const {
+  //   getTableProps,
+  //   getTableBodyProps,
+  //   headerGroups,
+  //   rows,
+  //   prepareRow
+  // } = tableInstance;
+  // The correct way is to combine step 2 and step as below.
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     rows,
     prepareRow
-  } = tableInstance;
+  } = useTable({
+    columns,
+    data
+  });
 
   return (
     // step 3, create/design the table structure with HTML.
@@ -34,6 +44,7 @@ const BasicTable = () => {
           <tr {...headerGroup.getHeaderGroupProps()}>
             {/* I am getting an error that says "getHeaderGroupProps is not a function; will change later if problem arrises" */}
             {headerGroup.headers.map(column => (
+              // the "Header" property is being retrieved from the Header value inside the MOCK_DATA
               <th {...column.getHeaderProps()}>{column.render("Header")}</th>
             ))}
           </tr>
@@ -46,7 +57,7 @@ const BasicTable = () => {
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map(cell => {
-                // row.cells gives access to the individually row cell
+                // row.cells gives access to the individually row cell; // Cell refers to the data in each row.
                 return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
               })}
             </tr>

@@ -23,6 +23,7 @@ tfoot td {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #4caf50;
+  /* background-color: #4caf50 (This was for the basic table layout */
+  background-color: purple; /* for the Sorting table */
   color: white;
 }
